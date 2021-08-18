@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Style+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Style+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap");
+* {
+  /* border: 5px solid black; */
+}
+body {
+  user-select: none;
+  overflow: hidden;
+}
+h1 {
+  width: auto;
+  height: 50px;
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(133, 69, 69, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  text-align: center;
+  font-family: "Style Script";
+  border-radius: 30px;
+  border: black solid 3px;
+  color: rgb(233, 204, 204);
+}
+#technos {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 40px;
+}
+h2 {
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 40px;
+  color: rgb(33, 45, 70);
+}
+#textanim {
+  display: flex;
+  justify-content: center;
+  border: 6px inset rgb(122, 87, 87);
+  border-radius: 25px;
+}
+h3 {
+  cursor: pointer;
+  border: rosybrown 3px solid;
+  border-radius: 20px;
+  background: pink;
+  width: 270px;
+  text-align: center;
+  padding: 15px 0;
+}
+h3:hover {
+  opacity: 0.5;
+}
+#Javascript {
+  color: teal;
+}
+#Php {
+  color: indianred;
+}
+#Python {
+  color: chocolate;
+}
+#target {
+  position: relative;
+  display: flex;
+  margin-left: 1rem;
+}
+#target::after {
+  content: "";
+  position: absolute;
+  height: 2rem;
+  width: 5px;
+  background: rgb(240, 113, 219);
+  top: 0;
+  transform: translateY(-1px);
+  right: -5px;
+  animation: anim 0.8s linear infinite;
+}
+@keyframes anim {
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
