@@ -1,140 +1,76 @@
-// Rappel des types de données
+let string2 = "Javascript est un langage orienté objet";
 
-let sring = "chaîne";
-let number = 25;
-let boolean = true;
-let maVariable; // type = Undefiened
+// console.log(typeof "42");
+// console.log(eval(parseInt("42") + 2));
+// console.log(isNaN(string2));
 
-// Tableaux
+// console.log(string2.length);
+// console.log(string2[string2.length - 1]);
+// console.log(string2);
 
-let array = ["Bordeaux", "Toulouse", "Nantes"];
+// console.log(string2.indexOf("a"));
 
-// console.log(array[1]); // Affiche Toulouse
+// let newString2 = string2.slice(5, 17);
+// console.log(newString2);
 
-// console.log(array[1][4]); // Affiche o ( 4ème index de "toulouse")
+// console.log(string2.split("i"));
 
-let array2 = ["Bordeaux", 24, true, [1, 2], { nom: "Denis" }];
-// console.log(array2[4].nom);
+// console.log(string2.toLowerCase());
+// console.log(string2.toUpperCase());
 
-let objet = {
-  pseudo: "Denis",
-  age: 33,
-  technos: ["Javascript", "React", "NodeJs"],
-  admin: false,
-};
+// console.log(string2.replace("Javascript", "PHP"));
 
-// console.log(objet.age);
+// ------------------
+// méthode NUMBER
+//-------------------
 
-// objet.adresse = "2 Place Du Docteur Brugel";
-// console.log(objet);
+let number = 42.15648;
 
-let data = [
-  {
-    pseudo: "Denis",
-    age: 33,
-    technos: ["Javascript", "React", "NodeJs"],
-    admin: false,
-  },
-  {
-    pseudo: "Samia",
-    age: 24,
-    technos: ["CSS", "React", "NodeJs"],
-    admin: false,
-  },
-  {
-    pseudo: "Nikola",
-    age: 42,
-    technos: ["Php", "React", "NodeJs"],
-    admin: true,
-  },
-];
+// console.log(number);
+// console.log(number.toFixed(2));
 
-// Structures de controle ( if, else ... )
+//----------------
+// Math
+//----------------
 
-// ------------------------------------------------------------------------
+// console.log(Math.PI);
+// console.log(Math.round(4.4));
+// console.log(Math.floor(4.9));
+// console.log(Math.ceil(4.2));
 
-if (data[0].age > data[1].age) {
-  // console.log(data[0].pseudo + " est plus agé que " + data[1].pseudo);
-} else {
-  // console.log(data[1].pseudo + " est plus agée que " + data[0].pseudo);
-}
+// console.log(Math.floor(Math.random() * 50));
 
-// valeur à tester ? si vrai: si faux
+//--------------
+//Méthode ARRAY
+//--------------
 
-// data[0].age > data[1].age ? console.log("Denis") : console.log("Samia");
+let array1 = ["Javascript", "Python", "Php"];
+let array2 = ["Ruby", "Solidity"];
 
-// WHILE
+// let newArray = [...array1, ...array2];   creer un tableau avec donnée array 1 et array 2 dedans
+// let newArray = array1.concat(array2);     //
+// console.log(newArray);
 
-let w = 0;
-while (w < 10) {
-  // console.log(array[w]);
-  w++;
-}
+// console.log(array1.join(" et puis ")); // met "et puis" entre chaque élément du tableau
 
-// FOR
+// console.log(array1.every((language) => language == "Php")); // est-ce que Php existe dans tous les éléments du tableau
+// console.log(array1.some((language) => language == "Php")); // est-ce que Php existe dans un des élément du tableau
 
-for (const user of data) {
-  // document.body.innerHTML += `<h4>${user.pseudo}</h4>`;
-  // document.body.innerHTML += `<li>${user.age}ans ---- admin : ${user.admin}</li>`;
-}
+//-----------------------------
+// IMPORTANT
+//---------------------------------
 
-for (i = 0; i < data.length; i++) {
-  // console.log(data[i].pseudo);
-}
+let arrayNumber = [4, 74, 28, 12, 1];
 
-// SWITCH
+// console.log(arrayNumber.reduce((x, y) => x + y));
 
-document.body.addEventListener("click", (e) => {
-  switch (e.target.id) {
-    case "Javascript":
-      document.body.style.background = "white";
-      break;
-    case "Php":
-      document.body.style.background = "yellowgreen";
-      break;
-    case "Python":
-      document.body.style.background = "chocolate";
-      break;
-    default:
-      null;
-  }
-});
+arrayNumber.push(17);
+// console.log(arrayNumber);
 
-// TEXT ANIM
+// FILTER, SORT, MAP
 
-const target = document.getElementById("target");
-let tableau = ["développeur", "photographe", "juriste"];
-let wordIndex = 0;
-let letterIndex = 0;
+// console.log(arrayNumber.filter((number) => number > 10));
 
-const createLetter = () => {
-  const letter = document.createElement("span");
-  target.appendChild(letter);
+// console.log(arrayNumber.sort((a, b) => b - a)); //du plus petit au plus grand
 
-  letter.textContent = tableau[wordIndex][letterIndex];
-  setTimeout(() => {
-    letter.remove();
-  }, 2800);
-};
-
-const loop = () => {
-  setTimeout(() => {
-    if (wordIndex >= tableau.length) {
-      wordIndex = 0;
-      letterIndex = 0;
-    }
-    if (letterIndex < tableau[wordIndex].length) {
-      createLetter();
-      letterIndex++;
-      loop();
-    } else {
-      wordIndex++;
-      letterIndex = 0;
-      setTimeout(() => {
-        loop();
-      }, 2800);
-    }
-  }, 80);
-};
-
-loop();
+// document.body.innerHTML = arrayNumber.map((number) => `<li>${number}`).join("");
