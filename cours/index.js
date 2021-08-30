@@ -1,3 +1,24 @@
+let data = [
+  {
+    pseudo: "Denis",
+    age: 33,
+    technos: ["Javascript", "React", "NodeJs"],
+    admin: false,
+  },
+  {
+    pseudo: "Samia",
+    age: 24,
+    technos: ["CSS", "React", "NodeJs"],
+    admin: false,
+  },
+  {
+    pseudo: "Nikola",
+    age: 42,
+    technos: ["Php", "React", "NodeJs"],
+    admin: true,
+  },
+];
+
 let string2 = "Javascript est un langage orienté objet";
 
 // console.log(typeof "42");
@@ -74,3 +95,22 @@ arrayNumber.push(17);
 // console.log(arrayNumber.sort((a, b) => b - a)); //du plus petit au plus grand
 
 // document.body.innerHTML = arrayNumber.map((number) => `<li>${number}`).join("");
+
+//----------------------------------
+// Méthode Objet
+//------------------------------------
+document.body.innerHTML = data
+  // .filter((user) => user.admin === true)
+  .sort((a, b) => b.age - a.age)
+  .map(
+    (user) =>
+      `
+    <div class="user-card">
+        <h2>${user.pseudo}</h2>
+        <p>Age :${user.age} ans</p>
+        <p>Technos :${user.technos}</p> 
+        <p>admin :${user.admin}</p> 
+    </div>
+    `
+  )
+  .join("");
