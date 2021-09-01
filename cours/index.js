@@ -99,18 +99,97 @@ arrayNumber.push(17);
 //----------------------------------
 // Méthode Objet
 //------------------------------------
-document.body.innerHTML = data
-  // .filter((user) => user.admin === true)
-  .sort((a, b) => b.age - a.age)
-  .map(
-    (user) =>
-      `
-    <div class="user-card">
-        <h2>${user.pseudo}</h2>
-        <p>Age :${user.age} ans</p>
-        <p>Technos :${user.technos}</p> 
-        <p>admin :${user.admin}</p> 
-    </div>
-    `
-  )
-  .join("");
+// document.body.innerHTML = data
+//   // .filter((user) => user.admin === true)
+//   // .filter((user) => user.pseudo.includes("Den"))
+//   .sort((a, b) => b.age - a.age)
+//   .map(
+//     (user) =>
+//       `
+//     <div class="user-card">
+//         <h2>${user.pseudo}</h2>
+//         <p>Age :${user.age} ans</p>
+//         <p>Technos :${user.technos}</p>
+//         <p>status : ${user.admin ? "Modérateur" : "Membre"}</p>
+//     </div>
+//     `
+//   )
+//   .join("");
+
+//-------------------------
+// Dates
+//--------------------------
+
+let date = new Date();
+// console.log(date);
+// Timestamp
+
+let timestamp = Date.parse(date);
+// console.log(timestamp);
+
+// IsoString
+
+// console.log(date.toISOString());
+let iso = date.toISOString();
+
+function dateParser(chaine) {
+  let newDate = new Date(chaine).toLocaleDateString("fr-Fr", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  });
+  return newDate;
+}
+
+// console.log(dateParser(date));
+
+//-------------------------
+// Destructuring
+//--------------------------
+
+let moreData = {
+  destVar: ["Element 1", "Element 2"],
+};
+
+const { destVar } = moreData; // destructuration
+
+// console.log(moreData.destVar[1]); // avant destructuration
+
+// console.log(destVar[1]); // après destructuration
+
+let array5 = [90, 80, 70];
+
+let [x, y, z] = array5;
+
+// console.log(x);
+// console.log(y);
+// console.log(z);
+
+const dateDestructuring = (chaine) => {
+  let newDate = chaine.split("T")[0];
+  [y, m, d] = newDate.split("-");
+  return [y, m, d].join("/");
+};
+
+// console.log(dateDestructuring(iso));
+
+//----------------
+// Datasets
+//----------------
+
+const h3js = document.getElementById("javascript");
+// console.log(h3js.dataset.lang);
+
+const h3 = document.querySelectorAll("h3");
+// h3.forEach((language) => console.log(language.dataset.lang));
+
+//----------------
+//Regex
+//----------------
+
+let mail = "couyssat.satya@gmail.com";
+// console.log(mail.search(/dkljdia/));
+// console.log(mail.replace(/couy/, "yo"));
+console.log(mail.match(/Couy/i));
