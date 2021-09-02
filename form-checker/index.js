@@ -1,3 +1,4 @@
+const form = document.querySelector("form");
 const inputs = document.querySelectorAll(
   `input[type="text"], input[type="password"]`
 );
@@ -108,6 +109,7 @@ const passwordChecker = (value) => {
     errorDisplay("password", "", true);
     password = value;
   }
+  if (confirmPass) confirmChecker("confirmPass");
 };
 //---------------
 //---------------
@@ -123,11 +125,11 @@ const passwordChecker = (value) => {
 //---------------
 const confirmChecker = (value) => {
   if (value !== password) {
-    console.log("marche pas");
     errorDisplay("confirm", "Les mots de passe ne correspondent pas");
+    confirmPass = false;
   } else {
-    console.log("Bingo !!");
     errorDisplay("confirm", "", true);
+    confirmPass = true;
   }
 };
 //---------------
@@ -159,4 +161,41 @@ inputs.forEach((input) => {
         break;
     }
   });
+});
+
+//---------------
+//---------------
+//---------------
+//---------------
+//---------------
+//---------------                     SUBMIT
+//---------------
+//---------------
+//---------------
+//---------------
+//---------------
+//---------------
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (pseudo && email && password && confirmPass) {
+    const data = {
+      pseudo: pseudo,
+      email: email,
+      password: password,
+    };
+    console.log(data);
+
+    inputs.forEach((input) => (input.value = ""));
+    progressBar.classList = "";
+
+    pseudo = null;
+    email = null;
+    password = null;
+    confirmPass = null;
+    alert("inscription validée");
+  } else {
+    alert("Veuillez remplir tous les champs");
+  }
 });
